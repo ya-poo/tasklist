@@ -5,6 +5,8 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.yapoo.tasklist.core.jackson.configure
 import com.yapoo.tasklist.core.time.SystemClock
 import com.yapoo.tasklist.core.time.SystemClockImpl
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class CoreModule :
     CoreModuleRegistry,
@@ -14,6 +16,10 @@ class CoreModule :
 
     val objectMapper: ObjectMapper by lazy {
         jacksonObjectMapper().also(ObjectMapper::configure)
+    }
+
+    val logger: Logger by lazy {
+        LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)
     }
 }
 

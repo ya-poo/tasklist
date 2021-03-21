@@ -27,10 +27,12 @@ fun main() {
 }
 
 fun Application.main() = buildModule().run {
+
     install(ContentNegotiation) {
         register(ContentType.Application.Json, JacksonConverter(core.objectMapper))
     }
     install(CallLogging) {
+        logger = core.logger
         level = Level.INFO
         filter { call -> call.request.path() != "/health" }
     }
@@ -42,6 +44,8 @@ fun Application.main() = buildModule().run {
             call.respondText(GIT_SHA, contentType = ContentType.Text.Plain)
         }
     }
+
+    log.debug("GIT_SHA: $GIT_SHA")
 }
 
 private val GIT_SHA by System.getenv().withDefault { "local" }
