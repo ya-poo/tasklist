@@ -45,7 +45,7 @@ fun Application.main() = ApplicationModule().run {
         }
     }
 
-    log.debug("GIT_SHA: $GIT_SHA")
+    log.info("GIT_SHA: $GIT_SHA")
 }
 
 private val GIT_SHA by System.getenv().withDefault { "local" }
