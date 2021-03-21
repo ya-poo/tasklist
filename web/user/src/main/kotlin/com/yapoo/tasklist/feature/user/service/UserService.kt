@@ -16,12 +16,14 @@ interface UserService {
     }
 }
 
-class UserServiceImpl(private val d: UserService.Dependency) : UserService {
+class UserServiceImpl(private val d: UserService.Dependency) :
+    UserService,
+    UserService.Dependency by d {
 
     override suspend fun createUser(
         email: Email
     ): UserProfile {
-        return d.userRepository.create(CreateUserProfile(email))
+        return userRepository.create(CreateUserProfile(email))
     }
 
 }

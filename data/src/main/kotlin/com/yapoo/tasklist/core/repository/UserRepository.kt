@@ -20,14 +20,16 @@ interface UserRepository {
     }
 }
 
-class UserRepositoryImpl(private val d: UserRepository.Dependency) : UserRepository {
+class UserRepositoryImpl(private val d: UserRepository.Dependency) :
+    UserRepository,
+    UserRepository.Dependency by d {
 
     private val internalList: List<UserProfileTable> = mutableListOf()
 
     override suspend fun create(
         createUserProfile: CreateUserProfile
     ): UserProfile {
-        val now = d.systemClock.now().toEpochMilliTime()
+        val now = systemClock.now().toEpochMilliTime()
         val user = UserProfileTable(
             id = UUID.randomUUID().let(Uuid::User),
             email = createUserProfile.email.value,

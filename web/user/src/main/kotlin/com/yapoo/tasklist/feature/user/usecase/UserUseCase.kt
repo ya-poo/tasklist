@@ -16,12 +16,14 @@ interface UserUseCase {
     }
 }
 
-class UserUseCaseImpl(private val d: UserUseCase.Dependency) : UserUseCase {
+class UserUseCaseImpl(private val d: UserUseCase.Dependency) :
+    UserUseCase,
+    UserUseCase.Dependency by d {
 
     override suspend fun create(
         request: UserRequest
     ): UserResponse {
-        return d.userService.createUser(request.email).toUserResponse()
+        return userService.createUser(request.email).toUserResponse()
     }
 
 }
