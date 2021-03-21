@@ -1,4 +1,4 @@
-import Dependencies.exposed
+import Dependencies.jacksonModuleKotlin
 
 plugins {
     kotlin("jvm")
@@ -6,4 +6,6 @@ plugins {
 
 dependencies {
     implementKotlin()
+
+    implementation(jacksonModuleKotlin)
 }

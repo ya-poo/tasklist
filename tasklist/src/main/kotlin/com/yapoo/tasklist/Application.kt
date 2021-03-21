@@ -1,6 +1,5 @@
 package com.yapoo.tasklist
 
-import com.fasterxml.jackson.databind.SerializationFeature
 import com.yapoo.tasklist.di.buildModule
 import com.yapoo.tasklist.feature.user.web.userRoute
 import com.yapoo.tasklist.utility.applyGracefulShutdown
@@ -14,7 +13,6 @@ import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import org.slf4j.event.Level
-import java.util.concurrent.TimeUnit
 
 fun main() {
     embeddedServer(
@@ -30,9 +28,7 @@ fun main() {
 
 fun Application.main() = buildModule().run {
     install(ContentNegotiation) {
-        jackson {
-            enable(SerializationFeature.INDENT_OUTPUT)
-        }
+        register(ContentType.Application.Json, JacksonConverter(core.objectMapper))
     }
     install(CallLogging) {
         level = Level.INFO
