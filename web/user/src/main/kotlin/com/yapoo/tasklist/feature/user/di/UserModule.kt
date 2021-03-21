@@ -12,7 +12,7 @@ class UserModule(
     UserExportToApplicationRegistry,
     DataExportToUserRegistry by data {
 
-    override val userUseCase: UserUseCase = UserUseCaseImpl(this)
+    override val userUseCase: UserUseCase by lazy { UserUseCaseImpl(this) }
 
-    override val userService: UserService = UserServiceImpl(this)
+    override val userService: UserService by lazy { UserServiceImpl(this) }
 }

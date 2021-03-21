@@ -16,7 +16,7 @@ interface UserUseCase {
     }
 }
 
-class UserUseCaseImpl(private val d: UserUseCase.Dependency) :
+internal class UserUseCaseImpl(private val d: UserUseCase.Dependency) :
     UserUseCase,
     UserUseCase.Dependency by d {
 

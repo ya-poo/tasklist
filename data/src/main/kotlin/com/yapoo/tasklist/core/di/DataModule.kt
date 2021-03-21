@@ -10,5 +10,5 @@ class DataModule(
     DataExportToUserRegistry,
     CoreExportToDataRegistry by core {
 
-    override val userRepository: UserRepository = UserRepositoryImpl(this)
+    override val userRepository: UserRepository by lazy { UserRepositoryImpl(this) }
 }

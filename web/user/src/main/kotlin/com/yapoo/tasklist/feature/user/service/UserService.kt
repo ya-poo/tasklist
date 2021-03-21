@@ -16,7 +16,7 @@ interface UserService {
     }
 }
 
-class UserServiceImpl(private val d: UserService.Dependency) :
+internal class UserServiceImpl(private val d: UserService.Dependency) :
     UserService,
     UserService.Dependency by d {
 

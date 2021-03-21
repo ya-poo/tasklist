@@ -20,7 +20,7 @@ interface UserRepository {
     }
 }
 
-class UserRepositoryImpl(private val d: UserRepository.Dependency) :
+internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
     UserRepository,
     UserRepository.Dependency by d {
 
