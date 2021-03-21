@@ -12,5 +12,3 @@ class DataModule(
 
     override val userRepository: UserRepository = UserRepositoryImpl(this)
 }
-
-fun DataModule.toUserExportRegistry(): DataExportToUserRegistry = this

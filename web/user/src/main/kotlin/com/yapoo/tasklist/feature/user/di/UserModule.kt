@@ -16,5 +16,3 @@ class UserModule(
 
     override val userService: UserService = UserServiceImpl(this)
 }
-
-fun UserModule.toApplicationExportRegistry(): UserExportToApplicationRegistry = this

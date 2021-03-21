@@ -1,9 +1,10 @@
 package com.yapoo.tasklist.di
 
-import com.yapoo.tasklist.core.di.*
+import com.yapoo.tasklist.core.di.CoreExportToApplicationRegistry
+import com.yapoo.tasklist.core.di.CoreModule
+import com.yapoo.tasklist.core.di.DataModule
 import com.yapoo.tasklist.feature.user.di.UserExportToApplicationRegistry
 import com.yapoo.tasklist.feature.user.di.UserModule
-import com.yapoo.tasklist.feature.user.di.toApplicationExportRegistry
 
 class ApplicationModule private constructor(
     private val core: CoreExportToApplicationRegistry,
@@ -15,12 +16,12 @@ class ApplicationModule private constructor(
     companion object {
         operator fun invoke(): ApplicationModule {
             val core = CoreModule()
-            val data = DataModule(core.toDataExportRegistry())
-            val user = UserModule(data.toUserExportRegistry())
+            val data = DataModule(core)
+            val user = UserModule(data)
 
             return ApplicationModule(
-                core = core.toApplicationExportRegistry(),
-                user = user.toApplicationExportRegistry()
+                core = core,
+                user = user
             )
         }
     }

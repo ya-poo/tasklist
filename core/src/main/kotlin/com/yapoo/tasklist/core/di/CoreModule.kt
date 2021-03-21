@@ -23,8 +23,3 @@ class CoreModule :
         LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)
     }
 }
-
-fun CoreModule.toDataExportRegistry(): CoreExportToDataRegistry = this
-
-fun CoreModule.toApplicationExportRegistry(): CoreExportToApplicationRegistry = this
-
