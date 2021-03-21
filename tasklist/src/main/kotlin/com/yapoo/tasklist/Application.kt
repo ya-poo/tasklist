@@ -26,19 +26,19 @@ fun main() {
     ).applyGracefulShutdown().start()
 }
 
-fun Application.main() = ApplicationModule().run {
+fun Application.main() = ApplicationModule().let { module ->
 
     install(ContentNegotiation) {
-        register(ContentType.Application.Json, JacksonConverter(core.objectMapper))
+        register(ContentType.Application.Json, JacksonConverter(module.objectMapper))
     }
     install(CallLogging) {
-        logger = core.logger
+        logger = module.logger
         level = Level.INFO
         filter { call -> call.request.path() != "/health" }
     }
 
     routing {
-        userRoute(user.userUseCase)
+        userRoute(module.userUseCase)
 
         get("/health") {
             call.respondText(GIT_SHA, contentType = ContentType.Text.Plain)
