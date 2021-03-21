@@ -10,18 +10,21 @@ import org.slf4j.LoggerFactory
 
 class CoreModule :
     CoreModuleRegistry,
-    CoreExportToDataRegistry {
+    CoreExportToDataRegistry,
+    CoreExportToApplicationRegistry {
 
     override val systemClock: SystemClock by lazy { SystemClockImpl() }
 
-    val objectMapper: ObjectMapper by lazy {
+    override val objectMapper: ObjectMapper by lazy {
         jacksonObjectMapper().also(ObjectMapper::configure)
     }
 
-    val logger: Logger by lazy {
+    override val logger: Logger by lazy {
         LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)
     }
 }
 
-fun CoreModule.toCoreExportToDataRegistry() =
-    object : CoreExportToDataRegistry by this {}
+fun CoreModule.toDataExportRegistry(): CoreExportToDataRegistry = this
+
+fun CoreModule.toApplicationExportRegistry(): CoreExportToApplicationRegistry = this
+

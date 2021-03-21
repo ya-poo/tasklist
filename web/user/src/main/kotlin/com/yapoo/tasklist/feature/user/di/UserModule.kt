@@ -9,9 +9,12 @@ import com.yapoo.tasklist.feature.user.usecase.UserUseCaseImpl
 class UserModule(
     private val data: DataExportToUserRegistry
 ) : UserModuleRegistry,
+    UserExportToApplicationRegistry,
     DataExportToUserRegistry by data {
 
-    val userUseCase: UserUseCase = UserUseCaseImpl(this)
+    override val userUseCase: UserUseCase = UserUseCaseImpl(this)
 
     override val userService: UserService = UserServiceImpl(this)
 }
+
+fun UserModule.toApplicationExportRegistry(): UserExportToApplicationRegistry = this

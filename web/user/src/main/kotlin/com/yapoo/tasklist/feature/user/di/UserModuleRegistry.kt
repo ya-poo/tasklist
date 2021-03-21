@@ -6,3 +6,7 @@ import com.yapoo.tasklist.feature.user.usecase.UserUseCase
 interface UserModuleRegistry :
     UserUseCase.Dependency,
     UserService.Dependency
+
+interface UserExportToApplicationRegistry {
+    val userUseCase: UserUseCase
+}

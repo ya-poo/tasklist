@@ -1,6 +1,6 @@
 package com.yapoo.tasklist
 
-import com.yapoo.tasklist.di.buildModule
+import com.yapoo.tasklist.di.ApplicationModule
 import com.yapoo.tasklist.feature.user.web.userRoute
 import com.yapoo.tasklist.utility.applyGracefulShutdown
 import io.ktor.application.*
@@ -26,7 +26,7 @@ fun main() {
     ).applyGracefulShutdown().start()
 }
 
-fun Application.main() = buildModule().run {
+fun Application.main() = ApplicationModule().run {
 
     install(ContentNegotiation) {
         register(ContentType.Application.Json, JacksonConverter(core.objectMapper))
@@ -38,7 +38,7 @@ fun Application.main() = buildModule().run {
     }
 
     routing {
-        userRoute(user)
+        userRoute(user.userUseCase)
 
         get("/health") {
             call.respondText(GIT_SHA, contentType = ContentType.Text.Plain)
