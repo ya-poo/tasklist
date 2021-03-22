@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.utility
+package com.yapoo.tasklist.server
 
 import io.ktor.server.engine.*
 import java.util.concurrent.TimeUnit

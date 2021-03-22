@@ -21,6 +21,8 @@ object Dependencies {
     const val logback = "ch.qos.logback:logback-classic:${Versions.logback}"
 
     const val jacksonModuleKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.jackson}"
+
+    const val jacksonKotlinCommon = "io.github.justincase-jp.jackson-kotlin-commons:textual:${Versions.jacksonKotlinCommon}"
 }
 
 private fun DependencyHandlerScope.implementation(dependencyNotation: Any) {

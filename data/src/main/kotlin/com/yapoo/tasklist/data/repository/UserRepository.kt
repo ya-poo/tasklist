@@ -1,14 +1,14 @@
-package com.yapoo.tasklist.core.repository
+package com.yapoo.tasklist.data.repository
 
-import com.yapoo.tasklist.core.dto.create.CreateUserProfile
+import com.yapoo.tasklist.data.dto.create.CreateUserProfile
 import com.yapoo.tasklist.infrastructure.time.EpochMilliTime
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import com.yapoo.tasklist.infrastructure.time.toEpochMilliTime
-import com.yapoo.tasklist.core.model.UserProfile
-import com.yapoo.tasklist.core.table.UserProfileTable
-import com.yapoo.tasklist.core.valueobject.Email
-import com.yapoo.tasklist.core.valueobject.UserName
-import com.yapoo.tasklist.core.valueobject.Uuid
+import com.yapoo.tasklist.data.model.UserProfile
+import com.yapoo.tasklist.data.table.UserProfileTable
+import com.yapoo.tasklist.data.valueobject.Email
+import com.yapoo.tasklist.data.valueobject.UserName
+import com.yapoo.tasklist.data.valueobject.Uuid
 import java.util.*
 
 interface UserRepository {

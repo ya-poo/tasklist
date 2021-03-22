@@ -1,7 +1,8 @@
-package com.yapoo.tasklist.infrastructure.di
+package com.yapoo.tasklist.data.di
 
-import com.yapoo.tasklist.core.repository.UserRepository
-import com.yapoo.tasklist.core.repository.UserRepositoryImpl
+import com.yapoo.tasklist.infrastructure.di.InfrastructureExportToDataRegistry
+import com.yapoo.tasklist.data.repository.UserRepository
+import com.yapoo.tasklist.data.repository.UserRepositoryImpl
 
 class DataModule(
     private val infrastructure: InfrastructureExportToDataRegistry

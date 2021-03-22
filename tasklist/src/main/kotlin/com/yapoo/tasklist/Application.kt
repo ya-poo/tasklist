@@ -2,7 +2,7 @@ package com.yapoo.tasklist
 
 import com.yapoo.tasklist.di.ApplicationModule
 import com.yapoo.tasklist.feature.user.web.userRoute
-import com.yapoo.tasklist.utility.applyGracefulShutdown
+import com.yapoo.tasklist.server.applyGracefulShutdown
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
@@ -26,7 +26,9 @@ fun main() {
     ).applyGracefulShutdown().start()
 }
 
-fun Application.main() = ApplicationModule().let { module ->
+fun Application.main() {
+
+    val module = ApplicationModule()
 
     install(ContentNegotiation) {
         register(ContentType.Application.Json, JacksonConverter(module.objectMapper))

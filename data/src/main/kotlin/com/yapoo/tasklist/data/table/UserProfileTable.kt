@@ -1,6 +1,6 @@
-package com.yapoo.tasklist.core.table
+package com.yapoo.tasklist.data.table
 
-import com.yapoo.tasklist.core.valueobject.Uuid
+import com.yapoo.tasklist.data.valueobject.Uuid
 
 data class UserProfileTable(
     val id: Uuid.User,

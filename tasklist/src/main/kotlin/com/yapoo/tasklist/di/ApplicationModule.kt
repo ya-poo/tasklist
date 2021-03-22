@@ -2,7 +2,7 @@ package com.yapoo.tasklist.di
 
 import com.yapoo.tasklist.infrastructure.di.InfrastructureExportToApplicationRegistry
 import com.yapoo.tasklist.infrastructure.di.InfrastructureModule
-import com.yapoo.tasklist.infrastructure.di.DataModule
+import com.yapoo.tasklist.data.di.DataModule
 import com.yapoo.tasklist.feature.user.di.UserExportToApplicationRegistry
 import com.yapoo.tasklist.feature.user.di.UserModule
 
