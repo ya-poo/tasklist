@@ -8,7 +8,4 @@ dependencies {
     implementKotlin()
 
     implementation(project(":infrastructure"))
-    implementation(project(":data-core"))
-
-    implementation(exposed)
 }

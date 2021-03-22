@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.data.valueobject
+package com.yapoo.tasklist.data.core.valueobject
 
 import java.util.*
 

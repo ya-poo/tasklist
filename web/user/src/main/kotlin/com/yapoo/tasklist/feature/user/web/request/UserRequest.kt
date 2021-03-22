@@ -1,7 +1,7 @@
 package com.yapoo.tasklist.feature.user.web.request
 
-import com.yapoo.tasklist.data.valueobject.Email
-import com.yapoo.tasklist.data.valueobject.UserName
+import com.yapoo.tasklist.data.core.valueobject.Email
+import com.yapoo.tasklist.data.core.valueobject.UserName
 
 data class UserRequest(
     val email: Email,

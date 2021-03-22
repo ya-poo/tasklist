@@ -7,4 +7,5 @@ dependencies {
     implementKtor()
 
     implementation(project(":data"))
+    implementation(project(":data-core"))
 }

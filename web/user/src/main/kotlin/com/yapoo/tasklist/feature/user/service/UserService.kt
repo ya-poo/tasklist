@@ -1,9 +1,9 @@
 package com.yapoo.tasklist.feature.user.service
 
+import com.yapoo.tasklist.data.core.model.UserProfile
+import com.yapoo.tasklist.data.core.valueobject.Email
 import com.yapoo.tasklist.data.dto.create.CreateUserProfile
-import com.yapoo.tasklist.data.model.UserProfile
 import com.yapoo.tasklist.data.repository.UserRepository
-import com.yapoo.tasklist.data.valueobject.Email
 
 interface UserService {
 

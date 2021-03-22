@@ -1,9 +1,9 @@
 package com.yapoo.tasklist.feature.user.web.response
 
-import com.yapoo.tasklist.data.model.UserProfile
-import com.yapoo.tasklist.data.valueobject.Email
-import com.yapoo.tasklist.data.valueobject.UserName
-import com.yapoo.tasklist.data.valueobject.Uuid
+import com.yapoo.tasklist.data.core.model.UserProfile
+import com.yapoo.tasklist.data.core.valueobject.Email
+import com.yapoo.tasklist.data.core.valueobject.UserName
+import com.yapoo.tasklist.data.core.valueobject.Uuid
 import java.time.ZonedDateTime
 
 data class UserResponse(
