@@ -1,11 +1,11 @@
 package com.yapoo.tasklist.core.repository
 
 import com.yapoo.tasklist.core.dto.create.CreateUserProfile
+import com.yapoo.tasklist.infrastructure.time.EpochMilliTime
+import com.yapoo.tasklist.infrastructure.time.SystemClock
+import com.yapoo.tasklist.infrastructure.time.toEpochMilliTime
 import com.yapoo.tasklist.core.model.UserProfile
 import com.yapoo.tasklist.core.table.UserProfileTable
-import com.yapoo.tasklist.core.time.EpochMilliTime
-import com.yapoo.tasklist.core.time.SystemClock
-import com.yapoo.tasklist.core.time.toEpochMilliTime
 import com.yapoo.tasklist.core.valueobject.Email
 import com.yapoo.tasklist.core.valueobject.UserName
 import com.yapoo.tasklist.core.valueobject.Uuid

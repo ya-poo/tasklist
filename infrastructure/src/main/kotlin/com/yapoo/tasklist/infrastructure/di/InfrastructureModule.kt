@@ -1,17 +1,17 @@
-package com.yapoo.tasklist.core.di
+package com.yapoo.tasklist.infrastructure.di
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.yapoo.tasklist.core.jackson.configure
-import com.yapoo.tasklist.core.time.SystemClock
-import com.yapoo.tasklist.core.time.SystemClockImpl
+import com.yapoo.tasklist.infrastructure.jackson.configure
+import com.yapoo.tasklist.infrastructure.time.SystemClock
+import com.yapoo.tasklist.infrastructure.time.SystemClockImpl
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class CoreModule :
-    CoreModuleRegistry,
-    CoreExportToDataRegistry,
-    CoreExportToApplicationRegistry {
+class InfrastructureModule :
+    InfrastructureModuleRegistry,
+    InfrastructureExportToDataRegistry,
+    InfrastructureExportToApplicationRegistry {
 
     override val systemClock: SystemClock by lazy { SystemClockImpl() }
 

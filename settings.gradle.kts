@@ -2,7 +2,7 @@ rootProject.name = "tasklist"
 
 include(
     "tasklist",
-    "core",
+    ":web:user",
     "data",
-    ":web:user"
+    "infrastructure"
 )

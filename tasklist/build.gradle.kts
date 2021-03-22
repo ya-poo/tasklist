@@ -26,7 +26,7 @@ dependencies {
     implementKotlin()
     implementKtor()
 
-    implementation(project(":core"))
+    implementation(project(":infrastructure"))
     implementation(project(":data"))
     implementation(project(":web:user"))
 

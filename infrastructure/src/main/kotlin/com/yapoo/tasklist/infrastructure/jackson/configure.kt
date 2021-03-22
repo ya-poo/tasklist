@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.core.jackson
+package com.yapoo.tasklist.infrastructure.jackson
 
 import com.fasterxml.jackson.core.util.DefaultIndenter
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter

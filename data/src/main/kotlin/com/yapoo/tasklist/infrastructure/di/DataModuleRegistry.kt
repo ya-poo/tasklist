@@ -1,9 +1,9 @@
-package com.yapoo.tasklist.core.di
+package com.yapoo.tasklist.infrastructure.di
 
 import com.yapoo.tasklist.core.repository.UserRepository
 
 interface DataModuleRegistry :
-    CoreExportToDataRegistry,
+    InfrastructureExportToDataRegistry,
     UserRepository.Dependency
 
 interface DataExportToUserRegistry {

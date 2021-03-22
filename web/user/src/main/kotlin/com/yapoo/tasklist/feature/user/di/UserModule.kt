@@ -1,6 +1,6 @@
 package com.yapoo.tasklist.feature.user.di
 
-import com.yapoo.tasklist.core.di.DataExportToUserRegistry
+import com.yapoo.tasklist.infrastructure.di.DataExportToUserRegistry
 import com.yapoo.tasklist.feature.user.service.UserService
 import com.yapoo.tasklist.feature.user.service.UserServiceImpl
 import com.yapoo.tasklist.feature.user.usecase.UserUseCase

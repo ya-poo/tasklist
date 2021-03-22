@@ -7,7 +7,7 @@ plugins {
 dependencies {
     implementKotlin()
 
-    implementation(project(":core"))
+    implementation(project(":infrastructure"))
 
     implementation(exposed)
 }
