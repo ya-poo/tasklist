@@ -5,4 +5,5 @@ internal object Versions {
     const val exposed = "0.17.9"
     const val jackson = "2.12.2"
     const val jacksonKotlinCommon = "2.3.0"
+    const val kotest = "4.4.3"
 }

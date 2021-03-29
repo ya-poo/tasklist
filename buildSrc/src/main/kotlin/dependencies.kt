@@ -25,6 +25,10 @@ object Dependencies {
     const val jacksonKotlinCommon = "io.github.justincase-jp.jackson-kotlin-commons:textual:${Versions.jacksonKotlinCommon}"
 }
 
+object TestDependencies {
+    const val kotestRunner = "io.kotest:kotest-runner-junit5:${Versions.kotest}"
+}
+
 private fun DependencyHandlerScope.implementation(dependencyNotation: Any) {
     add("implementation", dependencyNotation)
 }
