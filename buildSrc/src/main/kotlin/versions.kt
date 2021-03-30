@@ -6,4 +6,6 @@ internal object Versions {
     const val jackson = "2.12.2"
     const val jacksonKotlinCommon = "2.3.0"
     const val kotest = "4.4.3"
+    const val hikaricp = "4.0.3"
+    const val postgresql = "42.2.19"
 }

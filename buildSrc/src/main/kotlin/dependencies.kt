@@ -16,13 +16,18 @@ object Dependencies {
 
     const val exposed = "org.jetbrains.exposed:exposed:${Versions.exposed}"
 
+    const val hikaricp = "com.zaxxer:HikariCP:${Versions.hikaricp}"
+
+    const val postgresql = "org.postgresql:postgresql:${Versions.postgresql}"
+
     const val ktorServerTest = "io.ktor:ktor-server-tests:${Versions.ktor}"
 
     const val logback = "ch.qos.logback:logback-classic:${Versions.logback}"
 
     const val jacksonModuleKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.jackson}"
 
-    const val jacksonKotlinCommon = "io.github.justincase-jp.jackson-kotlin-commons:textual:${Versions.jacksonKotlinCommon}"
+    const val jacksonKotlinCommon =
+        "io.github.justincase-jp.jackson-kotlin-commons:textual:${Versions.jacksonKotlinCommon}"
 }
 
 object TestDependencies {

@@ -2,9 +2,12 @@ package com.yapoo.tasklist.infrastructure.di
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.yapoo.tasklist.infrastructure.database.dataSource
 import com.yapoo.tasklist.infrastructure.jackson.configure
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import com.yapoo.tasklist.infrastructure.time.SystemClockImpl
+import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.transactions.transaction
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -12,6 +15,10 @@ class InfrastructureModule :
     InfrastructureModuleRegistry,
     InfrastructureExportToDataRegistry,
     InfrastructureExportToApplicationRegistry {
+
+    init {
+        Database.connect(dataSource)
+    }
 
     override val systemClock: SystemClock by lazy { SystemClockImpl() }
 
