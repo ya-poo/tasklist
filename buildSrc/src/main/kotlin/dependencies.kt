@@ -20,7 +20,7 @@ object Dependencies {
 
     const val postgresql = "org.postgresql:postgresql:${Versions.postgresql}"
 
-    const val ktorServerTest = "io.ktor:ktor-server-tests:${Versions.ktor}"
+    const val flywaydb = "org.flywaydb:flyway-core:${Versions.flywaydb}"
 
     const val logback = "ch.qos.logback:logback-classic:${Versions.logback}"
 
@@ -31,6 +31,8 @@ object Dependencies {
 }
 
 object TestDependencies {
+    const val ktorServerTest = "io.ktor:ktor-server-tests:${Versions.ktor}"
+
     const val kotestRunner = "io.kotest:kotest-runner-junit5:${Versions.kotest}"
 }
 

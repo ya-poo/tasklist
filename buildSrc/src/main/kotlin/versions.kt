@@ -8,4 +8,5 @@ internal object Versions {
     const val kotest = "4.4.3"
     const val hikaricp = "4.0.3"
     const val postgresql = "42.2.19"
+    const val flywaydb = "7.7.1"
 }

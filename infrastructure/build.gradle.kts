@@ -1,4 +1,5 @@
 import Dependencies.exposed
+import Dependencies.flywaydb
 import Dependencies.hikaricp
 import Dependencies.jacksonModuleKotlin
 import Dependencies.logback
@@ -17,6 +18,7 @@ dependencies {
     implementation(hikaricp)
     implementation(exposed)
     implementation(postgresql)
+    implementation(flywaydb)
 
     testImplementation(kotestRunner)
 }

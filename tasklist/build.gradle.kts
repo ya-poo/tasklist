@@ -1,5 +1,5 @@
-import Dependencies.ktorServerTest
 import Dependencies.logback
+import TestDependencies.ktorServerTest
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
