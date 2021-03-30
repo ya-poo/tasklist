@@ -32,7 +32,7 @@ class InfrastructureModule :
         migrateDatabase(dataSource)
     }
 
-    val dispatcher: TransactionCoroutineDispatcher by lazy {
+    override val dispatcher: TransactionCoroutineDispatcher by lazy {
         TransactionCoroutineDispatcherImpl(this)
     }
 }

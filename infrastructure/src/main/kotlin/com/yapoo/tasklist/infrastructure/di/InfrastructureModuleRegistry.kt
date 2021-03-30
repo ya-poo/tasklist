@@ -10,6 +10,7 @@ interface InfrastructureModuleRegistry
 
 interface InfrastructureExportToDataRegistry {
     val systemClock: SystemClock
+    val dispatcher: TransactionCoroutineDispatcher
 }
 
 interface InfrastructureExportToApplicationRegistry {
