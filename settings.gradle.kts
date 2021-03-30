@@ -3,7 +3,7 @@ rootProject.name = "tasklist"
 include(
     "tasklist",
     ":web:user",
-    "data",
-    "data-core",
+    "repository",
+    "model",
     "infrastructure"
 )

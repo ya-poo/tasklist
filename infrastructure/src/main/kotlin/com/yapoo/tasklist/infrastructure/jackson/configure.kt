@@ -6,12 +6,15 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 
 fun ObjectMapper.configure() {
     setDefaultPrettyPrinter(DefaultPrettyPrinter().apply {
         indentArraysWith(DefaultPrettyPrinter.FixedSpaceIndenter.instance)
         indentObjectsWith(DefaultIndenter("  ", "\n"))
     })
+
+    registerKotlinModule()
 
     configure(SerializationFeature.INDENT_OUTPUT, true)
     configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)

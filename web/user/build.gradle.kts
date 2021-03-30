@@ -6,6 +6,6 @@ dependencies {
     implementKotlin()
     implementKtor()
 
-    implementation(project(":data"))
-    implementation(project(":data-core"))
+    implementation(project(":repository"))
+    implementation(project(":model"))
 }

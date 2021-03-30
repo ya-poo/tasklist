@@ -27,7 +27,7 @@ dependencies {
     implementKtor()
 
     implementation(project(":infrastructure"))
-    implementation(project(":data"))
+    implementation(project(":repository"))
     implementation(project(":web:user"))
 
     implementation(logback)
