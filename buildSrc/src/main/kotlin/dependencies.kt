@@ -4,6 +4,7 @@ import org.gradle.kotlin.dsl.kotlin
 fun DependencyHandlerScope.implementKotlin() {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:${Versions.kotlin}"))
     implementation(kotlin("stdlib", Versions.kotlin))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutine}")
 }
 
 fun DependencyHandlerScope.implementKtor() {

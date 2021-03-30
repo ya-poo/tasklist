@@ -2,6 +2,8 @@ package com.yapoo.tasklist.infrastructure.di
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.yapoo.tasklist.infrastructure.database.TransactionCoroutineDispatcher
+import com.yapoo.tasklist.infrastructure.database.TransactionCoroutineDispatcherImpl
 import com.yapoo.tasklist.infrastructure.database.dataSource
 import com.yapoo.tasklist.infrastructure.database.migrateDatabase
 import com.yapoo.tasklist.infrastructure.jackson.configure
@@ -16,11 +18,6 @@ class InfrastructureModule :
     InfrastructureExportToDataRegistry,
     InfrastructureExportToApplicationRegistry {
 
-    init {
-        Database.connect(dataSource)
-        migrateDatabase(dataSource)
-    }
-
     override val systemClock: SystemClock by lazy { SystemClockImpl() }
 
     override val objectMapper: ObjectMapper by lazy {
@@ -29,5 +26,13 @@ class InfrastructureModule :
 
     override val logger: Logger by lazy {
         LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)
+    }
+
+    override val database: Database = Database.connect(dataSource).also {
+        migrateDatabase(dataSource)
+    }
+
+    val dispatcher: TransactionCoroutineDispatcher by lazy {
+        TransactionCoroutineDispatcherImpl(this)
     }
 }
