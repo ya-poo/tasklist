@@ -4,7 +4,7 @@ import com.zaxxer.hikari.HikariDataSource
 import org.flywaydb.core.Flyway
 import org.flywaydb.core.api.configuration.ClassicConfiguration
 
-fun migrateDatabase(
+internal fun migrateDatabase(
     dataSource: HikariDataSource
 ) {
     ClassicConfiguration().apply {

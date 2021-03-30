@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 
-fun ObjectMapper.configure() {
+internal fun ObjectMapper.configure() {
     setDefaultPrettyPrinter(DefaultPrettyPrinter().apply {
         indentArraysWith(DefaultPrettyPrinter.FixedSpaceIndenter.instance)
         indentObjectsWith(DefaultIndenter("  ", "\n"))
