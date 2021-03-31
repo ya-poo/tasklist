@@ -3,7 +3,7 @@ package com.yapoo.tasklist.infrastructure.valueobject
 import jp.justincase.jackson.kotlin.textual.Textual
 import java.util.*
 
-sealed class Uuid(private val value: UUID) : Comparable<Uuid> {
+sealed class Uuid(val value: UUID) : Comparable<Uuid> {
 
     override fun compareTo(other: Uuid): Int =
         if (javaClass == other.javaClass) {
@@ -20,6 +20,13 @@ sealed class Uuid(private val value: UUID) : Comparable<Uuid> {
             override fun fromText(value: String): User = User(UUID.fromString(value))
             override val User.text: String
                 get() = string
+        }
+    }
+
+    companion object {
+        inline fun <reified T : Uuid> random(): T {
+            val constructor = T::class.java.getConstructor(UUID::class.java)
+            return constructor.newInstance(UUID.randomUUID())
         }
     }
 }

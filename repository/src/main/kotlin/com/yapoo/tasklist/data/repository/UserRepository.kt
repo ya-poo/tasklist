@@ -2,14 +2,14 @@ package com.yapoo.tasklist.data.repository
 
 import com.yapoo.tasklist.data.core.model.UserProfile
 import com.yapoo.tasklist.data.core.valueobject.Email
-import com.yapoo.tasklist.infrastructure.valueobject.Uuid
 import com.yapoo.tasklist.data.dto.CreateUserProfile
 import com.yapoo.tasklist.data.table.UserProfileTable
+import com.yapoo.tasklist.infrastructure.database.column.entityId
 import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
 import com.yapoo.tasklist.infrastructure.time.SystemClock
+import com.yapoo.tasklist.infrastructure.valueobject.Uuid
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.statements.InsertStatement
-import java.util.*
 
 interface UserRepository {
 
@@ -32,7 +32,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
 
         return dispatcher.transaction {
             UserProfileTable.insert {
-                it[id] = UserProfileTable.entityId(UUID.randomUUID(), this)
+                it[id] = entityId(Uuid.random())
                 it[email] = createUserProfile.email.value
                 it[createdAt] = now
                 it[updatedAt] = now
@@ -42,7 +42,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
 
     private fun InsertStatement<*>.toUserProfile() =
         UserProfile(
-            id = this[UserProfileTable.id].let(Uuid::User),
+            id = this[UserProfileTable.id].value,
             email = this[UserProfileTable.email].let(::Email),
             createdAt = this[UserProfileTable.createdAt],
             updatedAt = this[UserProfileTable.updatedAt]
