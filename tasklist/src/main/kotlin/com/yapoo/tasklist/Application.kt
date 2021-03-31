@@ -1,7 +1,7 @@
 package com.yapoo.tasklist
 
 import com.yapoo.tasklist.di.ApplicationModule
-import com.yapoo.tasklist.feature.user.route.userRoute
+import com.yapoo.tasklist.route.userRoute
 import com.yapoo.tasklist.server.applyGracefulShutdown
 import io.ktor.application.*
 import io.ktor.features.*
@@ -40,7 +40,7 @@ fun Application.main() {
     }
 
     routing {
-        userRoute(module.userUseCase)
+        userRoute(module)
 
         get("/health") {
             call.respondText(GIT_SHA, contentType = ContentType.Text.Plain)

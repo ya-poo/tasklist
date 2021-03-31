@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.feature.user.service
+package com.yapoo.tasklist.user.profile.service
 
 import com.yapoo.tasklist.data.core.model.UserProfile
 import com.yapoo.tasklist.data.core.valueobject.Email

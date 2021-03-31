@@ -28,7 +28,7 @@ dependencies {
 
     implementation(project(":infrastructure"))
     implementation(project(":repository"))
-    implementation(project(":web:user"))
+    implementation(project(":user:profile"))
 
     implementation(logback)
 

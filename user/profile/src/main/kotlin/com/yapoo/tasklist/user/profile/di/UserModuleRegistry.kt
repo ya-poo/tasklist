@@ -1,7 +1,7 @@
-package com.yapoo.tasklist.feature.user.di
+package com.yapoo.tasklist.user.profile.di
 
-import com.yapoo.tasklist.feature.user.service.UserService
-import com.yapoo.tasklist.feature.user.usecase.UserUseCase
+import com.yapoo.tasklist.user.profile.service.UserService
+import com.yapoo.tasklist.user.profile.usecase.UserUseCase
 
 interface UserModuleRegistry :
     UserUseCase.Dependency,

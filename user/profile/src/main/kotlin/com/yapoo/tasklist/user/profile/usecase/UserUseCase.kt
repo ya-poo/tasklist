@@ -1,9 +1,9 @@
-package com.yapoo.tasklist.feature.user.usecase
+package com.yapoo.tasklist.user.profile.usecase
 
-import com.yapoo.tasklist.feature.user.route.request.UserRequest
-import com.yapoo.tasklist.feature.user.route.response.UserResponse
-import com.yapoo.tasklist.feature.user.route.response.toUserResponse
-import com.yapoo.tasklist.feature.user.service.UserService
+import com.yapoo.tasklist.user.profile.route.request.UserRequest
+import com.yapoo.tasklist.user.profile.route.response.UserResponse
+import com.yapoo.tasklist.user.profile.route.response.toUserResponse
+import com.yapoo.tasklist.user.profile.service.UserService
 
 interface UserUseCase {
 
