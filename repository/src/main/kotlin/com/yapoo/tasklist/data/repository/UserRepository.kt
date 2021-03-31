@@ -5,9 +5,8 @@ import com.yapoo.tasklist.data.core.valueobject.Email
 import com.yapoo.tasklist.data.core.valueobject.Uuid
 import com.yapoo.tasklist.data.dto.create.CreateUserProfile
 import com.yapoo.tasklist.data.table.UserProfileTable
-import com.yapoo.tasklist.infrastructure.database.TransactionCoroutineDispatcher
+import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
 import com.yapoo.tasklist.infrastructure.time.SystemClock
-import com.yapoo.tasklist.infrastructure.time.toZonedDateTime
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.statements.InsertStatement
 import java.util.*
@@ -29,10 +28,14 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
     override suspend fun create(
         createUserProfile: CreateUserProfile
     ): UserProfile {
+        val now = systemClock.now()
+
         return dispatcher.newSuspendedTransaction {
             UserProfileTable.insert {
                 it[id] = UUID.randomUUID()
                 it[email] = createUserProfile.email.value
+                it[createdAt] = now.toOffsetDateTime()
+                it[updatedAt] = now.toOffsetDateTime()
             }
         }.toUserProfile()
     }
