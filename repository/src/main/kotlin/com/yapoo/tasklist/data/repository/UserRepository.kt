@@ -7,7 +7,7 @@ import com.yapoo.tasklist.data.table.UserProfileTable
 import com.yapoo.tasklist.infrastructure.database.column.entityId
 import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
 import com.yapoo.tasklist.infrastructure.time.SystemClock
-import com.yapoo.tasklist.infrastructure.valueobject.Uuid
+import com.yapoo.tasklist.infrastructure.uuid.UuidFactory
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.statements.InsertStatement
 
@@ -18,6 +18,7 @@ interface UserRepository {
     interface Dependency {
         val systemClock: SystemClock
         val dispatcher: TransactionCoroutineDispatcher
+        val uuidFactory: UuidFactory
     }
 }
 
@@ -32,7 +33,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
 
         return dispatcher.transaction {
             UserProfileTable.insert {
-                it[id] = entityId(Uuid.random())
+                it[id] = entityId(uuidFactory.next())
                 it[email] = createUserProfile.email.value
                 it[createdAt] = now
                 it[updatedAt] = now

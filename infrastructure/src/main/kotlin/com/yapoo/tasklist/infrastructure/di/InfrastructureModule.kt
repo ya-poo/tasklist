@@ -9,6 +9,8 @@ import com.yapoo.tasklist.infrastructure.database.migration.migrateDatabase
 import com.yapoo.tasklist.infrastructure.jackson.configure
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import com.yapoo.tasklist.infrastructure.time.SystemClockImpl
+import com.yapoo.tasklist.infrastructure.uuid.UuidFactory
+import com.yapoo.tasklist.infrastructure.uuid.UuidFactoryImpl
 import org.jetbrains.exposed.sql.Database
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -34,5 +36,9 @@ class InfrastructureModule :
 
     override val dispatcher: TransactionCoroutineDispatcher by lazy {
         TransactionCoroutineDispatcherImpl(this)
+    }
+
+    override val uuidFactory: UuidFactory by lazy {
+        UuidFactoryImpl()
     }
 }

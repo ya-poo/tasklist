@@ -2,6 +2,7 @@ package com.yapoo.tasklist.infrastructure.valueobject
 
 import jp.justincase.jackson.kotlin.textual.Textual
 import java.util.*
+import kotlin.reflect.full.primaryConstructor
 
 sealed class Uuid(val value: UUID) : Comparable<Uuid> {
 
@@ -24,9 +25,16 @@ sealed class Uuid(val value: UUID) : Comparable<Uuid> {
     }
 
     companion object {
-        inline fun <reified T : Uuid> random(): T {
-            val constructor = T::class.java.getConstructor(UUID::class.java)
-            return constructor.newInstance(UUID.randomUUID())
+        val constructors by lazy {
+            Uuid::class.sealedSubclasses.associateWith { kClass ->
+                kClass.primaryConstructor
+            }
         }
     }
+}
+
+inline fun <reified T : Uuid> UUID.toUuid(): T {
+    return Uuid.constructors[T::class]
+        ?.call(this) as? T
+        ?: throw Exception()
 }
