@@ -1,14 +1,14 @@
 package com.yapoo.tasklist.data.di
 
-import com.yapoo.tasklist.infrastructure.di.InfrastructureExportToDataRegistry
 import com.yapoo.tasklist.data.repository.UserRepository
 import com.yapoo.tasklist.data.repository.UserRepositoryImpl
+import com.yapoo.tasklist.infrastructure.di.InfrastructureExportToDataRegistry
 
-class DataModule(
+class RepositoryModule(
     private val infrastructure: InfrastructureExportToDataRegistry
 ) :
-    DataModuleRegistry,
-    DataExportToUserRegistry,
+    RepositoryModuleRegistry,
+    RepositoryExportToUserRegistry,
     InfrastructureExportToDataRegistry by infrastructure {
 
     override val userRepository: UserRepository by lazy { UserRepositoryImpl(this) }

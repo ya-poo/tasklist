@@ -1,16 +1,16 @@
 package com.yapoo.tasklist.feature.user.di
 
-import com.yapoo.tasklist.data.di.DataExportToUserRegistry
+import com.yapoo.tasklist.data.di.RepositoryExportToUserRegistry
 import com.yapoo.tasklist.feature.user.service.UserService
 import com.yapoo.tasklist.feature.user.service.UserServiceImpl
 import com.yapoo.tasklist.feature.user.usecase.UserUseCase
 import com.yapoo.tasklist.feature.user.usecase.UserUseCaseImpl
 
 class UserModule(
-    private val data: DataExportToUserRegistry
+    private val repository: RepositoryExportToUserRegistry
 ) : UserModuleRegistry,
     UserExportToApplicationRegistry,
-    DataExportToUserRegistry by data {
+    RepositoryExportToUserRegistry by repository {
 
     override val userUseCase: UserUseCase by lazy { UserUseCaseImpl(this) }
 

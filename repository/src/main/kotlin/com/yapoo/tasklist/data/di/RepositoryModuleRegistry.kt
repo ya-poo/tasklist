@@ -1,12 +1,12 @@
 package com.yapoo.tasklist.data.di
 
-import com.yapoo.tasklist.infrastructure.di.InfrastructureExportToDataRegistry
 import com.yapoo.tasklist.data.repository.UserRepository
+import com.yapoo.tasklist.infrastructure.di.InfrastructureExportToDataRegistry
 
-interface DataModuleRegistry :
+interface RepositoryModuleRegistry :
     InfrastructureExportToDataRegistry,
     UserRepository.Dependency
 
-interface DataExportToUserRegistry {
+interface RepositoryExportToUserRegistry {
     val userRepository: UserRepository
 }
