@@ -11,7 +11,7 @@ plugins {
 
 dependencies {
     implementKotlin()
-    implementObjectMapper()
+    implementJackson()
 
     implementation(logback)
     implementation(hikaricp)

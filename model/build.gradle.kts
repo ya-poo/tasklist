@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     implementKotlin()
-    implementObjectMapper()
+    implementJackson()
 
     implementation(project(":infrastructure"))
 }

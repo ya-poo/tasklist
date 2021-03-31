@@ -13,8 +13,9 @@ fun DependencyHandlerScope.implementKtor() {
     implementation("io.ktor:ktor-jackson:${Versions.ktor}")
 }
 
-fun DependencyHandlerScope.implementObjectMapper() {
+fun DependencyHandlerScope.implementJackson() {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.jackson}")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:${Versions.jackson}")
     implementation("io.github.justincase-jp.jackson-kotlin-commons:textual:${Versions.jacksonKotlinCommon}")
 }
 
