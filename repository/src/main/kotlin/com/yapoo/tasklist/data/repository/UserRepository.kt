@@ -30,7 +30,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
     ): UserProfile {
         val now = systemClock.now()
 
-        return dispatcher.newSuspendedTransaction {
+        return dispatcher.transaction {
             UserProfileTable.insert {
                 it[id] = UUID.randomUUID()
                 it[email] = createUserProfile.email.value

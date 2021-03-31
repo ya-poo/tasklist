@@ -3,11 +3,12 @@ package com.yapoo.tasklist.infrastructure.database.connection
 import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Transaction
-import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction as exposedTransaction
+import org.jetbrains.exposed.sql.transactions.TransactionManager
+import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 interface TransactionCoroutineDispatcher {
 
-    suspend fun <T> newSuspendedTransaction(
+    suspend fun <T> transaction(
         statement: suspend Transaction.() -> T
     ): T
 
@@ -16,14 +17,19 @@ interface TransactionCoroutineDispatcher {
     }
 }
 
-class TransactionCoroutineDispatcherImpl(d: TransactionCoroutineDispatcher.Dependencies) :
+class TransactionCoroutineDispatcherImpl internal constructor(d: TransactionCoroutineDispatcher.Dependencies) :
     TransactionCoroutineDispatcher,
     TransactionCoroutineDispatcher.Dependencies by d {
 
-    override suspend fun <T> newSuspendedTransaction(
+    override suspend fun <T> transaction(
         statement: suspend Transaction.() -> T
     ): T {
-        return exposedTransaction(Dispatchers.IO, database, statement)
-    }
+        val currentTransaction = TransactionManager.currentOrNull()
 
+        return if (currentTransaction == null) {
+            newSuspendedTransaction(Dispatchers.IO, database, statement)
+        } else {
+            currentTransaction.statement()
+        }
+    }
 }
