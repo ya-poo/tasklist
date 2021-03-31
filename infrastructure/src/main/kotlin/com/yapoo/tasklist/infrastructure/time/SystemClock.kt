@@ -8,7 +8,7 @@ interface SystemClock {
 
 }
 
-class SystemClockImpl : SystemClock {
+internal class SystemClockImpl : SystemClock {
 
     override fun now(): UtcDateTime =
         UtcDateTime(defaultNow())

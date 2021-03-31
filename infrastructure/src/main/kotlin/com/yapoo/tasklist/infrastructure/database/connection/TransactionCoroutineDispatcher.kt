@@ -17,7 +17,7 @@ interface TransactionCoroutineDispatcher {
     }
 }
 
-class TransactionCoroutineDispatcherImpl internal constructor(d: TransactionCoroutineDispatcher.Dependencies) :
+internal class TransactionCoroutineDispatcherImpl(private val d: TransactionCoroutineDispatcher.Dependencies) :
     TransactionCoroutineDispatcher,
     TransactionCoroutineDispatcher.Dependencies by d {
 
