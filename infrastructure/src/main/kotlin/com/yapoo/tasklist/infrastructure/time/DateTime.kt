@@ -1,8 +1,5 @@
 package com.yapoo.tasklist.infrastructure.time
 
-import org.joda.time.DateTime
+import java.time.ZoneId
 
-fun DateTime.toZonedDateTime() =
-    toGregorianCalendar()
-        .toZonedDateTime()
-        .withZoneSameInstant(asiaTokyoZone)
+internal val asiaTokyoZone = ZoneId.of("Asia/Tokyo")
