@@ -1,8 +1,9 @@
 package com.yapoo.tasklist
 
 import com.yapoo.tasklist.di.ApplicationModule
-import com.yapoo.tasklist.route.userRoute
+import com.yapoo.tasklist.web.userRoute
 import com.yapoo.tasklist.server.applyGracefulShutdown
+import com.yapoo.tasklist.web.statusPageHandler
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
@@ -37,6 +38,9 @@ fun Application.main() {
         logger = module.logger
         level = Level.INFO
         filter { call -> call.request.path() != "/health" }
+    }
+    install(StatusPages) {
+        statusPageHandler()
     }
 
     routing {

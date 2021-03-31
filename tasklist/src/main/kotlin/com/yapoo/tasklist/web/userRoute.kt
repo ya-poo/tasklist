@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.route
+package com.yapoo.tasklist.web
 
 import com.yapoo.tasklist.di.ApplicationModule
 import com.yapoo.tasklist.user.profile.route.profileRoute
