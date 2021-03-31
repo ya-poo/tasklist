@@ -8,11 +8,11 @@ plugins {
     kotlin("jvm")
 }
 
-group = "jp.justincase.lotusroot"
+group = "com.yapoo.tasklist"
 version = "0.0.1"
 
 application {
-    mainClassName = "jp.justincase.lotusroot.ApplicationKt"
+    mainClassName = "com.yapoo.tasklist.ApplicationKt"
 }
 
 @Suppress("UnstableApiUsage")

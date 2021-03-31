@@ -18,7 +18,6 @@ allprojects {
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             allWarningsAsErrors = true
-            freeCompilerArgs = listOf("-Xinline-classes")
             jvmTarget = JavaVersion.VERSION_1_8.toString()
         }
     }
