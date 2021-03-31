@@ -1,7 +1,7 @@
 package com.yapoo.tasklist
 
 import com.yapoo.tasklist.di.ApplicationModule
-import com.yapoo.tasklist.feature.user.web.userRoute
+import com.yapoo.tasklist.feature.user.route.userRoute
 import com.yapoo.tasklist.server.applyGracefulShutdown
 import io.ktor.application.*
 import io.ktor.features.*

@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.feature.user.web.request
+package com.yapoo.tasklist.feature.user.route.request
 
 import com.yapoo.tasklist.data.core.valueobject.Email
 

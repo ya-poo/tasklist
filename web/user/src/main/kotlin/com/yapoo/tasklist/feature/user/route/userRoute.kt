@@ -1,7 +1,7 @@
-package com.yapoo.tasklist.feature.user.web
+package com.yapoo.tasklist.feature.user.route
 
+import com.yapoo.tasklist.feature.user.route.request.UserRequest
 import com.yapoo.tasklist.feature.user.usecase.UserUseCase
-import com.yapoo.tasklist.feature.user.web.request.UserRequest
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
