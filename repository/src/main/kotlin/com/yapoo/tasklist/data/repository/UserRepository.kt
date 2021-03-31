@@ -34,8 +34,8 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
             UserProfileTable.insert {
                 it[id] = UUID.randomUUID()
                 it[email] = createUserProfile.email.value
-                it[createdAt] = now.toOffsetDateTime()
-                it[updatedAt] = now.toOffsetDateTime()
+                it[createdAt] = now
+                it[updatedAt] = now
             }
         }.toUserProfile()
     }
@@ -44,7 +44,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
         UserProfile(
             id = this[UserProfileTable.id].let(Uuid::User),
             email = this[UserProfileTable.email].let(::Email),
-            createdAt = this[UserProfileTable.createdAt].toZonedDateTime(),
-            updatedAt = this[UserProfileTable.updatedAt].toZonedDateTime()
+            createdAt = this[UserProfileTable.createdAt].value,
+            updatedAt = this[UserProfileTable.updatedAt].value
         )
 }
