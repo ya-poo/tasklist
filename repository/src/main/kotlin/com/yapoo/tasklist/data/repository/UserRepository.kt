@@ -3,7 +3,7 @@ package com.yapoo.tasklist.data.repository
 import com.yapoo.tasklist.data.core.model.UserProfile
 import com.yapoo.tasklist.data.core.valueobject.Email
 import com.yapoo.tasklist.data.core.valueobject.Uuid
-import com.yapoo.tasklist.data.dto.create.CreateUserProfile
+import com.yapoo.tasklist.data.dto.CreateUserProfile
 import com.yapoo.tasklist.data.table.UserProfileTable
 import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
 import com.yapoo.tasklist.infrastructure.time.SystemClock

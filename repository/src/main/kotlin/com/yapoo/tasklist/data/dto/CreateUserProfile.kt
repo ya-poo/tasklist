@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.data.dto.create
+package com.yapoo.tasklist.data.dto
 
 import com.yapoo.tasklist.data.core.valueobject.Email
 
