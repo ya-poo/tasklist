@@ -8,7 +8,7 @@ import org.slf4j.Logger
 interface InfrastructureModuleRegistry
     : TransactionCoroutineDispatcher.Dependencies
 
-interface InfrastructureExportToDataRegistry {
+interface InfrastructureExportToRepositoryRegistry {
     val systemClock: SystemClock
     val dispatcher: TransactionCoroutineDispatcher
 }

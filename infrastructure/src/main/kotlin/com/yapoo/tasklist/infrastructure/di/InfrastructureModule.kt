@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory
 
 class InfrastructureModule :
     InfrastructureModuleRegistry,
-    InfrastructureExportToDataRegistry,
+    InfrastructureExportToRepositoryRegistry,
     InfrastructureExportToApplicationRegistry {
 
     override val systemClock: SystemClock by lazy { SystemClockImpl() }
