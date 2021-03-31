@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.infrastructure.time
+package com.yapoo.tasklist.infrastructure.valueobject.datetime
 
 import jp.justincase.jackson.kotlin.textual.Textual
 import java.time.ZoneOffset

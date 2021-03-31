@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.infrastructure.time
+package com.yapoo.tasklist.infrastructure.valueobject.datetime
 
 import java.time.ZoneId
 import java.time.ZonedDateTime

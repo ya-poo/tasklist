@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.data.core.valueobject
+package com.yapoo.tasklist.infrastructure.valueobject
 
 import jp.justincase.jackson.kotlin.textual.Textual
 import java.util.*

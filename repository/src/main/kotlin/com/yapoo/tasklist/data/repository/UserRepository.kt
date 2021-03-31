@@ -2,7 +2,7 @@ package com.yapoo.tasklist.data.repository
 
 import com.yapoo.tasklist.data.core.model.UserProfile
 import com.yapoo.tasklist.data.core.valueobject.Email
-import com.yapoo.tasklist.data.core.valueobject.Uuid
+import com.yapoo.tasklist.infrastructure.valueobject.Uuid
 import com.yapoo.tasklist.data.dto.CreateUserProfile
 import com.yapoo.tasklist.data.table.UserProfileTable
 import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
@@ -32,7 +32,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
 
         return dispatcher.transaction {
             UserProfileTable.insert {
-                it[id] = UUID.randomUUID()
+                it[id] = UserProfileTable.entityId(UUID.randomUUID(), this)
                 it[email] = createUserProfile.email.value
                 it[createdAt] = now
                 it[updatedAt] = now

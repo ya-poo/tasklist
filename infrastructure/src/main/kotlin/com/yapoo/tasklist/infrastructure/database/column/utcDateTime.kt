@@ -1,15 +1,14 @@
 package com.yapoo.tasklist.infrastructure.database.column
 
-import com.yapoo.tasklist.infrastructure.time.UtcDateTime
+import com.yapoo.tasklist.infrastructure.valueobject.datetime.UtcDateTime
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ColumnType
 import org.jetbrains.exposed.sql.Table
-import java.time.OffsetDateTime
 
 fun Table.utcDateTime(name: String): Column<UtcDateTime> =
-    registerColumn(name, OffsetDateTimeColumnType())
+    registerColumn(name, UtcDateTimeColumnType())
 
-class OffsetDateTimeColumnType : ColumnType() {
+class UtcDateTimeColumnType : ColumnType() {
 
     override fun sqlType(): String =
         "TIMESTAMP WITH TIME ZONE"
