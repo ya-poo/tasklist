@@ -1,5 +1,6 @@
 package com.yapoo.tasklist.data.core.valueobject
 
+import jp.justincase.jackson.kotlin.textual.Textual
 import java.util.*
 
 sealed class Uuid(private val value: UUID) : Comparable<Uuid> {
@@ -11,5 +12,14 @@ sealed class Uuid(private val value: UUID) : Comparable<Uuid> {
             javaClass.name.compareTo(other.javaClass.name)
         }
 
-    class User(value: UUID) : Uuid(value)
+    protected val string: String
+        get() = value.toString()
+
+    class User(value: UUID) : Uuid(value) {
+        companion object : Textual<User> {
+            override fun fromText(value: String): User = User(UUID.fromString(value))
+            override val User.text: String
+                get() = string
+        }
+    }
 }
