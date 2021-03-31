@@ -1,7 +1,6 @@
 import Dependencies.exposed
 import Dependencies.flywaydb
 import Dependencies.hikaricp
-import Dependencies.jacksonModuleKotlin
 import Dependencies.logback
 import Dependencies.postgresql
 import TestDependencies.kotestRunner
@@ -12,8 +11,8 @@ plugins {
 
 dependencies {
     implementKotlin()
+    implementObjectMapper()
 
-    implementation(jacksonModuleKotlin)
     implementation(logback)
     implementation(hikaricp)
     implementation(exposed)

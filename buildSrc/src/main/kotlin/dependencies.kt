@@ -13,6 +13,11 @@ fun DependencyHandlerScope.implementKtor() {
     implementation("io.ktor:ktor-jackson:${Versions.ktor}")
 }
 
+fun DependencyHandlerScope.implementObjectMapper() {
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.jackson}")
+    implementation("io.github.justincase-jp.jackson-kotlin-commons:textual:${Versions.jacksonKotlinCommon}")
+}
+
 object Dependencies {
 
     const val exposed = "org.jetbrains.exposed:exposed:${Versions.exposed}"
@@ -24,11 +29,6 @@ object Dependencies {
     const val flywaydb = "org.flywaydb:flyway-core:${Versions.flywaydb}"
 
     const val logback = "ch.qos.logback:logback-classic:${Versions.logback}"
-
-    const val jacksonModuleKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.jackson}"
-
-    const val jacksonKotlinCommon =
-        "io.github.justincase-jp.jackson-kotlin-commons:textual:${Versions.jacksonKotlinCommon}"
 }
 
 object TestDependencies {
