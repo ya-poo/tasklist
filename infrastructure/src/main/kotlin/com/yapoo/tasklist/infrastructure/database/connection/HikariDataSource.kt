@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.infrastructure.database
+package com.yapoo.tasklist.infrastructure.database.connection
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource

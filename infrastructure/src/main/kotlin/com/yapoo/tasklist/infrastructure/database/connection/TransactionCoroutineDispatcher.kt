@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.infrastructure.database
+package com.yapoo.tasklist.infrastructure.database.connection
 
 import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.Database

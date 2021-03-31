@@ -2,10 +2,10 @@ package com.yapoo.tasklist.infrastructure.di
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.yapoo.tasklist.infrastructure.database.TransactionCoroutineDispatcher
-import com.yapoo.tasklist.infrastructure.database.TransactionCoroutineDispatcherImpl
-import com.yapoo.tasklist.infrastructure.database.dataSource
-import com.yapoo.tasklist.infrastructure.database.migrateDatabase
+import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
+import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcherImpl
+import com.yapoo.tasklist.infrastructure.database.connection.dataSource
+import com.yapoo.tasklist.infrastructure.database.migration.migrateDatabase
 import com.yapoo.tasklist.infrastructure.jackson.configure
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import com.yapoo.tasklist.infrastructure.time.SystemClockImpl

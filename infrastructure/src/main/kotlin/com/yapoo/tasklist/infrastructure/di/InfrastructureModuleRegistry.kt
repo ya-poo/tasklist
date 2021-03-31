@@ -1,7 +1,7 @@
 package com.yapoo.tasklist.infrastructure.di
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.yapoo.tasklist.infrastructure.database.TransactionCoroutineDispatcher
+import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import org.slf4j.Logger
 

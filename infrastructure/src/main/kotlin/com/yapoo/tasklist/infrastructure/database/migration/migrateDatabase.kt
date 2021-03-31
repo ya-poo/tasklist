@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.infrastructure.database
+package com.yapoo.tasklist.infrastructure.database.migration
 
 import com.zaxxer.hikari.HikariDataSource
 import org.flywaydb.core.Flyway
