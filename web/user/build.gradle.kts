@@ -8,4 +8,5 @@ dependencies {
 
     implementation(project(":repository"))
     implementation(project(":model"))
+    implementation(project(":infrastructure"))
 }

@@ -44,7 +44,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
         UserProfile(
             id = this[UserProfileTable.id].let(Uuid::User),
             email = this[UserProfileTable.email].let(::Email),
-            createdAt = this[UserProfileTable.createdAt].value,
-            updatedAt = this[UserProfileTable.updatedAt].value
+            createdAt = this[UserProfileTable.createdAt],
+            updatedAt = this[UserProfileTable.updatedAt]
         )
 }
