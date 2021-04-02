@@ -4,13 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
 import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcherImpl
-import com.yapoo.tasklist.infrastructure.database.connection.dataSource
+import com.yapoo.tasklist.infrastructure.database.connection.createHikariDataSource
 import com.yapoo.tasklist.infrastructure.database.migration.migrateDatabase
 import com.yapoo.tasklist.infrastructure.jackson.configure
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import com.yapoo.tasklist.infrastructure.time.SystemClockImpl
 import com.yapoo.tasklist.infrastructure.uuid.UuidFactory
 import com.yapoo.tasklist.infrastructure.uuid.UuidFactoryImpl
+import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -30,7 +31,9 @@ class InfrastructureModule :
         LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)
     }
 
-    override val database: Database = Database.connect(dataSource).also {
+    private val dataSource: HikariDataSource by lazy(::createHikariDataSource)
+
+    override val database: Database = Database.connect(dataSource).apply {
         migrateDatabase(dataSource)
     }
 

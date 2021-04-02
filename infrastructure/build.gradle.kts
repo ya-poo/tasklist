@@ -1,4 +1,5 @@
 import Dependencies.exposed
+import Dependencies.exposedJdbc
 import Dependencies.flywaydb
 import Dependencies.hikaricp
 import Dependencies.logback
@@ -16,6 +17,7 @@ dependencies {
     implementation(logback)
     implementation(hikaricp)
     implementation(exposed)
+    implementation(exposedJdbc)
     implementation(postgresql)
     implementation(flywaydb)
 

@@ -5,7 +5,7 @@ import com.zaxxer.hikari.HikariDataSource
 
 private const val dbname = "tasklist"
 
-internal val dataSource = HikariDataSource(
+internal fun createHikariDataSource() = HikariDataSource(
     HikariConfig().apply {
         driverClassName = "org.postgresql.Driver"
         jdbcUrl = "jdbc:postgresql://localhost:5432/$dbname"

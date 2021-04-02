@@ -2,8 +2,8 @@ package com.yapoo.tasklist.infrastructure.database.column
 
 import com.yapoo.tasklist.infrastructure.valueobject.Uuid
 import com.yapoo.tasklist.infrastructure.valueobject.toUuid
-import org.jetbrains.exposed.dao.EntityID
-import org.jetbrains.exposed.dao.IdTable
+import org.jetbrains.exposed.dao.id.EntityID
+import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ColumnType
 import org.jetbrains.exposed.sql.Table

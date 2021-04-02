@@ -1,11 +1,11 @@
 package com.yapoo.tasklist.infrastructure.database.migration
 
-import com.zaxxer.hikari.HikariDataSource
 import org.flywaydb.core.Flyway
 import org.flywaydb.core.api.configuration.ClassicConfiguration
+import javax.sql.DataSource
 
 internal fun migrateDatabase(
-    dataSource: HikariDataSource
+    dataSource: DataSource
 ) {
     ClassicConfiguration().apply {
         setDataSource(dataSource)

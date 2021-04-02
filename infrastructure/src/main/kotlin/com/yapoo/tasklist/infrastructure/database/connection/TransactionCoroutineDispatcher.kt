@@ -5,6 +5,7 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.Transaction
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
+import java.sql.Connection
 
 interface TransactionCoroutineDispatcher {
 
@@ -27,7 +28,7 @@ internal class TransactionCoroutineDispatcherImpl(private val d: TransactionCoro
         val currentTransaction = TransactionManager.currentOrNull()
 
         return if (currentTransaction == null) {
-            newSuspendedTransaction(Dispatchers.IO, database, statement)
+            newSuspendedTransaction(Dispatchers.IO, database, Connection.TRANSACTION_READ_COMMITTED, statement)
         } else {
             currentTransaction.statement()
         }

@@ -21,7 +21,9 @@ fun DependencyHandlerScope.implementJackson() {
 
 object Dependencies {
 
-    const val exposed = "org.jetbrains.exposed:exposed:${Versions.exposed}"
+    const val exposed = "org.jetbrains.exposed:exposed-core:${Versions.exposed}"
+
+    const val exposedJdbc = "org.jetbrains.exposed:exposed-jdbc:${Versions.exposed}"
 
     const val hikaricp = "com.zaxxer:HikariCP:${Versions.hikaricp}"
 
