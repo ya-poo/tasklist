@@ -18,9 +18,8 @@ class UtcDateTimeColumnType : ColumnType() {
         else -> error("Unexpected Time Value: $value of ${value::class.qualifiedName}")
     }
 
-    override fun valueToDB(value: Any?): Any? = when (value) {
+    override fun notNullValueToDB(value: Any): Any = when (value) {
         is UtcDateTime -> value.value.toOffsetDateTime()
-        null -> null
         else -> error("Unexpected Time Value: $value of ${value::class.qualifiedName}")
     }
 }
