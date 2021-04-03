@@ -1,10 +1,10 @@
-package com.yapoo.tasklist.repository.repository
+package com.yapoo.tasklist.model.repository
 
-import com.yapoo.tasklist.repository.core.model.UserProfile
-import com.yapoo.tasklist.repository.core.valueobject.Email
-import com.yapoo.tasklist.repository.core.valueobject.UserId
-import com.yapoo.tasklist.repository.dto.CreateUserProfile
-import com.yapoo.tasklist.repository.table.UserProfileTable
+import com.yapoo.tasklist.model.model.UserProfile
+import com.yapoo.tasklist.model.valueobject.Email
+import com.yapoo.tasklist.model.valueobject.UserId
+import com.yapoo.tasklist.model.dto.CreateUserProfile
+import com.yapoo.tasklist.model.table.UserProfileTable
 import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import com.yapoo.tasklist.infrastructure.uuid.UuidFactory
