@@ -26,10 +26,11 @@ dependencies {
     implementKotlin()
     implementKtor()
 
-    implementation(project(":infrastructure"))
-    implementation(project(":repository"))
     implementation(project(":user:profile"))
     implementation(project(":user-core"))
+    implementation(project(":repository"))
+    implementation(project(":model"))
+    implementation(project(":infrastructure"))
 
     implementation(logback)
 

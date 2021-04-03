@@ -5,5 +5,7 @@ import com.yapoo.tasklist.user.core.error.UserError
 import io.ktor.application.*
 
 fun ApplicationCall.userId() =
+    userIdOrNull() ?: throw UserError.BadRequest.UserIdNotSet()
+
+fun ApplicationCall.userIdOrNull() =
     request.headers["X-Tasklist-User"]?.let { UserId.fromText(it) }
-        ?: throw UserError.BadRequest.UserIdNotSet()
