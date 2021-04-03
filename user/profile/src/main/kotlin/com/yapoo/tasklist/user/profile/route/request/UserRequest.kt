@@ -1,6 +1,6 @@
 package com.yapoo.tasklist.user.profile.route.request
 
-import com.yapoo.tasklist.model.valueobject.Email
+import com.yapoo.tasklist.repository.valueobject.Email
 
 data class UserRequest(
     val email: Email

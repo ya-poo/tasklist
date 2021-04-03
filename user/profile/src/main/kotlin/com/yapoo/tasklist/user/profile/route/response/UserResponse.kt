@@ -1,8 +1,8 @@
 package com.yapoo.tasklist.user.profile.route.response
 
-import com.yapoo.tasklist.model.model.UserProfile
-import com.yapoo.tasklist.model.valueobject.Email
-import com.yapoo.tasklist.model.valueobject.UserId
+import com.yapoo.tasklist.repository.model.UserProfile
+import com.yapoo.tasklist.repository.valueobject.Email
+import com.yapoo.tasklist.repository.valueobject.UserId
 import com.yapoo.tasklist.infrastructure.valueobject.datetime.TokyoDateTime
 
 data class UserResponse(

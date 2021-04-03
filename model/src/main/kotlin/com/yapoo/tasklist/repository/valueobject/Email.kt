@@ -1,4 +1,4 @@
-package com.yapoo.tasklist.model.valueobject
+package com.yapoo.tasklist.repository.valueobject
 
 import jp.justincase.jackson.kotlin.textual.Textual
 

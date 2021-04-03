@@ -1,6 +1,6 @@
 package com.yapoo.tasklist.user.core.ktor
 
-import com.yapoo.tasklist.model.valueobject.UserId
+import com.yapoo.tasklist.repository.valueobject.UserId
 import com.yapoo.tasklist.user.core.error.UserError
 import io.ktor.application.*
 
