@@ -5,9 +5,7 @@ plugins {
 dependencies {
     implementKotlin()
     implementKtor()
+    implementJackson()
 
-    implementation(project(":user-core"))
-    implementation(project(":repository"))
-    implementation(project(":model"))
     implementation(project(":infrastructure"))
 }
