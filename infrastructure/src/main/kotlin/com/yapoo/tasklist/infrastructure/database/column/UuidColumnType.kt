@@ -7,13 +7,13 @@ import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.UUIDColumnType
 import java.util.*
 
-fun <T : Uuid> Table.uuid(factory: (UUID) -> T, name: String): Column<T> =
-    registerColumn(name, UuidColumnType(factory))
+fun <T : Uuid> Table.uuid(wrapper: (UUID) -> T, name: String): Column<T> =
+    registerColumn(name, UuidColumnType(wrapper))
 
 private val uuidColumnType = UUIDColumnType()
 
 class UuidColumnType<T : Uuid>(
-    private val factory: (UUID) -> T
+    private val wrapper: (UUID) -> T
 ) : ColumnType() {
 
     override fun sqlType(): String =
@@ -21,7 +21,7 @@ class UuidColumnType<T : Uuid>(
 
     override fun valueFromDB(value: Any): Any = when (value) {
         is Uuid -> value
-        is UUID -> factory(value)
+        is UUID -> wrapper(value)
         else -> uuidColumnType.valueFromDB(value)
     }
 
