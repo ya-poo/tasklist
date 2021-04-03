@@ -1,6 +1,6 @@
 package com.yapoo.tasklist.user.profile.usecase
 
-import com.yapoo.tasklist.data.core.valueobject.UserId
+import com.yapoo.tasklist.repository.core.valueobject.UserId
 import com.yapoo.tasklist.user.core.error.UserError
 import com.yapoo.tasklist.user.profile.route.request.UserRequest
 import com.yapoo.tasklist.user.profile.route.response.UserResponse

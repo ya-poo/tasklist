@@ -1,6 +1,6 @@
 package com.yapoo.tasklist.di
 
-import com.yapoo.tasklist.data.di.RepositoryModule
+import com.yapoo.tasklist.repository.di.RepositoryModule
 import com.yapoo.tasklist.infrastructure.di.InfrastructureExportToApplicationRegistry
 import com.yapoo.tasklist.infrastructure.di.InfrastructureModule
 import com.yapoo.tasklist.user.profile.di.UserExportToApplicationRegistry

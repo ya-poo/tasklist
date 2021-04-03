@@ -1,10 +1,10 @@
 package com.yapoo.tasklist.user.profile.service
 
-import com.yapoo.tasklist.data.core.model.UserProfile
-import com.yapoo.tasklist.data.core.valueobject.Email
-import com.yapoo.tasklist.data.core.valueobject.UserId
-import com.yapoo.tasklist.data.dto.CreateUserProfile
-import com.yapoo.tasklist.data.repository.UserRepository
+import com.yapoo.tasklist.repository.core.model.UserProfile
+import com.yapoo.tasklist.repository.core.valueobject.Email
+import com.yapoo.tasklist.repository.core.valueobject.UserId
+import com.yapoo.tasklist.repository.dto.CreateUserProfile
+import com.yapoo.tasklist.repository.repository.UserRepository
 
 interface UserService {
 

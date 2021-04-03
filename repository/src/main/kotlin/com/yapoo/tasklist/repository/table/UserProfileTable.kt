@@ -1,6 +1,6 @@
-package com.yapoo.tasklist.data.table
+package com.yapoo.tasklist.repository.table
 
-import com.yapoo.tasklist.data.core.valueobject.UserId
+import com.yapoo.tasklist.repository.core.valueobject.UserId
 import com.yapoo.tasklist.infrastructure.database.column.utcDateTime
 import com.yapoo.tasklist.infrastructure.database.column.uuid
 import org.jetbrains.exposed.sql.Table

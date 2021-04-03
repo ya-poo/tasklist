@@ -1,6 +1,6 @@
 package com.yapoo.tasklist.ktor
 
-import com.yapoo.tasklist.data.core.valueobject.UserId
+import com.yapoo.tasklist.repository.core.valueobject.UserId
 import com.yapoo.tasklist.user.core.ktor.userIdOrNull
 import io.ktor.application.*
 import io.ktor.features.*

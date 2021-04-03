@@ -1,7 +1,7 @@
-package com.yapoo.tasklist.data.di
+package com.yapoo.tasklist.repository.di
 
-import com.yapoo.tasklist.data.repository.UserRepository
-import com.yapoo.tasklist.data.repository.UserRepositoryImpl
+import com.yapoo.tasklist.repository.repository.UserRepository
+import com.yapoo.tasklist.repository.repository.UserRepositoryImpl
 import com.yapoo.tasklist.infrastructure.di.InfrastructureExportToRepositoryRegistry
 
 class RepositoryModule(
