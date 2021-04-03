@@ -9,20 +9,6 @@ Sample Ktor project.
 gradle run
 ```
 
-## Package structure
-
-```
-:tasklist
-  |
-:user:*
-  |
-:repository
-  |
-:model
-  |
-:infrastructure
-```
-
 ## Libraries
 
 * Ktor
