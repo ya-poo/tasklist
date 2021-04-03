@@ -16,6 +16,7 @@ class UtcDateTimeColumnType : ColumnType() {
         "TIMESTAMP WITH TIME ZONE"
 
     override fun valueFromDB(value: Any): Any = when (value) {
+        is UtcDateTime -> value
         is Timestamp -> value.toInstant().atZone(ZoneOffset.UTC).let(::UtcDateTime)
         else -> error("Unexpected Time Value: $value of ${value::class.qualifiedName}")
     }
