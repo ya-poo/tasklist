@@ -8,12 +8,20 @@ import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutin
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import com.yapoo.tasklist.infrastructure.uuid.UuidFactory
 import com.yapoo.tasklist.infrastructure.valueobject.Uuid
+import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.statements.InsertStatement
 
 interface UserRepository {
 
-    suspend fun create(createUserProfile: CreateUserProfile): UserProfile
+    suspend fun create(
+        createUserProfile: CreateUserProfile
+    ): UserProfile
+
+    suspend fun find(
+        userId: Uuid.User
+    ): UserProfile?
 
     interface Dependency {
         val systemClock: SystemClock
@@ -41,7 +49,28 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
         }.toUserProfile()
     }
 
+    override suspend fun find(
+        userId: Uuid.User
+    ): UserProfile? {
+        return dispatcher.transaction {
+            UserProfileTable
+                .select {
+                    UserProfileTable.id eq userId
+                }
+                .singleOrNull()
+                ?.toUserProfile()
+        }
+    }
+
     private fun InsertStatement<*>.toUserProfile() =
+        UserProfile(
+            id = this[UserProfileTable.id],
+            email = this[UserProfileTable.email].let(::Email),
+            createdAt = this[UserProfileTable.createdAt],
+            updatedAt = this[UserProfileTable.updatedAt]
+        )
+
+    private fun ResultRow.toUserProfile() =
         UserProfile(
             id = this[UserProfileTable.id],
             email = this[UserProfileTable.email].let(::Email),
