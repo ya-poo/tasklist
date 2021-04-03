@@ -1,9 +1,6 @@
 package com.yapoo.tasklist.infrastructure.database.column
 
 import com.yapoo.tasklist.infrastructure.valueobject.Uuid
-import com.yapoo.tasklist.infrastructure.valueobject.toUuid
-import org.jetbrains.exposed.dao.id.EntityID
-import org.jetbrains.exposed.dao.id.IdTable
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ColumnType
 import org.jetbrains.exposed.sql.Table
@@ -12,9 +9,6 @@ import java.util.*
 
 fun <T : Uuid> Table.uuid(factory: (UUID) -> T, name: String): Column<T> =
     registerColumn(name, UuidColumnType(factory))
-
-inline fun <reified T : Uuid> IdTable<T>.entityId(id: UUID): EntityID<T> =
-    EntityID(id.toUuid(), this)
 
 private val uuidColumnType = UUIDColumnType()
 

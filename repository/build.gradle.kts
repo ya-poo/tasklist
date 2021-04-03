@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementKotlin()
+    implementJackson()
 
     implementation(project(":infrastructure"))
     implementation(project(":model"))
