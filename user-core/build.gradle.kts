@@ -7,5 +7,5 @@ dependencies {
     implementKtor()
     implementJackson()
 
-    implementation(project(":infrastructure"))
+    implementation(project(":model"))
 }

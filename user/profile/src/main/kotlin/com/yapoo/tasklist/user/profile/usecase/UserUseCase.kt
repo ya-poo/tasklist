@@ -1,6 +1,6 @@
 package com.yapoo.tasklist.user.profile.usecase
 
-import com.yapoo.tasklist.infrastructure.valueobject.Uuid
+import com.yapoo.tasklist.data.core.valueobject.UserId
 import com.yapoo.tasklist.user.core.error.UserError
 import com.yapoo.tasklist.user.profile.route.request.UserRequest
 import com.yapoo.tasklist.user.profile.route.response.UserResponse
@@ -14,7 +14,7 @@ interface UserUseCase {
     ): UserResponse
 
     suspend fun find(
-        userId: Uuid.User
+        userId: UserId
     ): UserResponse
 
     interface Dependency {
@@ -33,7 +33,7 @@ internal class UserUseCaseImpl(private val d: UserUseCase.Dependency) :
     }
 
     override suspend fun find(
-        userId: Uuid.User
+        userId: UserId
     ): UserResponse {
         return userService.findUser(userId)
             ?.toUserResponse()

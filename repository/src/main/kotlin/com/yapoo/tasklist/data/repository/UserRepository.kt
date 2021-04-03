@@ -2,12 +2,12 @@ package com.yapoo.tasklist.data.repository
 
 import com.yapoo.tasklist.data.core.model.UserProfile
 import com.yapoo.tasklist.data.core.valueobject.Email
+import com.yapoo.tasklist.data.core.valueobject.UserId
 import com.yapoo.tasklist.data.dto.CreateUserProfile
 import com.yapoo.tasklist.data.table.UserProfileTable
 import com.yapoo.tasklist.infrastructure.database.connection.TransactionCoroutineDispatcher
 import com.yapoo.tasklist.infrastructure.time.SystemClock
 import com.yapoo.tasklist.infrastructure.uuid.UuidFactory
-import com.yapoo.tasklist.infrastructure.valueobject.Uuid
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
@@ -20,7 +20,7 @@ interface UserRepository {
     ): UserProfile
 
     suspend fun find(
-        userId: Uuid.User
+        userId: UserId
     ): UserProfile?
 
     interface Dependency {
@@ -41,7 +41,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
 
         return dispatcher.transaction {
             UserProfileTable.insert {
-                it[id] = Uuid.User(uuidFactory.next())
+                it[id] = UserId(uuidFactory.next())
                 it[email] = createUserProfile.email.value
                 it[createdAt] = now
                 it[updatedAt] = now
@@ -50,7 +50,7 @@ internal class UserRepositoryImpl(private val d: UserRepository.Dependency) :
     }
 
     override suspend fun find(
-        userId: Uuid.User
+        userId: UserId
     ): UserProfile? {
         return dispatcher.transaction {
             UserProfileTable

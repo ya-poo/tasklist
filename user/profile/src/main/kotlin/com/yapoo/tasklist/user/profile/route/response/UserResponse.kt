@@ -2,11 +2,11 @@ package com.yapoo.tasklist.user.profile.route.response
 
 import com.yapoo.tasklist.data.core.model.UserProfile
 import com.yapoo.tasklist.data.core.valueobject.Email
-import com.yapoo.tasklist.infrastructure.valueobject.Uuid
+import com.yapoo.tasklist.data.core.valueobject.UserId
 import com.yapoo.tasklist.infrastructure.valueobject.datetime.TokyoDateTime
 
 data class UserResponse(
-    val id: Uuid.User,
+    val id: UserId,
     val email: Email,
     val createdAt: TokyoDateTime,
     val updatedAt: TokyoDateTime,

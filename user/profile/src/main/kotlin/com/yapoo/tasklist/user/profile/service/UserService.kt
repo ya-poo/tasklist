@@ -2,9 +2,9 @@ package com.yapoo.tasklist.user.profile.service
 
 import com.yapoo.tasklist.data.core.model.UserProfile
 import com.yapoo.tasklist.data.core.valueobject.Email
+import com.yapoo.tasklist.data.core.valueobject.UserId
 import com.yapoo.tasklist.data.dto.CreateUserProfile
 import com.yapoo.tasklist.data.repository.UserRepository
-import com.yapoo.tasklist.infrastructure.valueobject.Uuid
 
 interface UserService {
 
@@ -13,7 +13,7 @@ interface UserService {
     ): UserProfile
 
     suspend fun findUser(
-        userId: Uuid.User
+        userId: UserId
     ): UserProfile?
 
     interface Dependency {
@@ -32,7 +32,7 @@ internal class UserServiceImpl(private val d: UserService.Dependency) :
     }
 
     override suspend fun findUser(
-        userId: Uuid.User
+        userId: UserId
     ): UserProfile? {
         return userRepository.find(userId)
     }
