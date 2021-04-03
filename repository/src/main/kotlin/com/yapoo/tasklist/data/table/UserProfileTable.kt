@@ -7,7 +7,7 @@ import org.jetbrains.exposed.sql.Table
 
 object UserProfileTable : Table("user_profile") {
     val id = uuid(Uuid::User, "id")
-    val email = text("email").index()
+    val email = text("email")
     val createdAt = utcDateTime("created_at")
     val updatedAt = utcDateTime("updated_at")
 }
